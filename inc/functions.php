@@ -1,4 +1,10 @@
 <?php
+
+//Best way to check my project is free of errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 /*
 // I want to show the two way that I learned of creating multidimensional array
 
@@ -70,9 +76,14 @@ function printQuote($quoteArry){
 
     $quote = $getRandArray['quote'];
     $source = $getRandArray['source'];
-    $citation = $getRandArray['citation'];
-    $year = $getRandArray['year'];
 
+    //To make sure there is a value for both citation & year and don't get any error
+    if (isset($getRandArray['citation'])) {
+        $citation = $getRandArray['citation'];
+    }
+    if (isset($getRandArray['year'])) {
+        $year = $getRandArray['year'];
+    }
     
     if (isset($citation) && isset($year)){
         echo "<p class='quote'>" . $quote .  "</p>";
@@ -90,8 +101,7 @@ function printQuote($quoteArry){
     
     //This code refresh the page ater 5 seconds
     header("Refresh:5");
-
-
+    
 }
 
 
