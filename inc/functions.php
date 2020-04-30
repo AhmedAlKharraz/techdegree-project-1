@@ -57,8 +57,8 @@ $arr for the array
 
 function getRandomQuote($arr){
 
-    $value1 = $arr[array_rand($arr)];
-    return $value1;
+    $value = $arr[array_rand($arr)];
+    return $value;
     
 }
 
@@ -89,7 +89,7 @@ function printQuote($quoteArry){
     }
     
     //This code refresh the page ater 5 seconds
-    //header("Refresh:5");
+    header("Refresh:5");
 
 
 }
