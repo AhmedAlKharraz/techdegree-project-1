@@ -53,29 +53,27 @@ $quotes = array(
 /* This function is generating random quote from quotes array, 
 this functions passing two arguments
 $arr for the array
-$id is the key inside the array
 */
 
-function getRandomQuuote($arr, $id){
+function getRandomQuote($arr){
 
-    $value = $arr[array_rand($arr)];
-    if(array_key_exists($id, $value) ){
-        return $value[$id];
-    } else {
-        return null;
-    }
+    $value1 = $arr[array_rand($arr)];
+    return $value1;
     
 }
 
 
 // This function will check the keys inside the quotes array if they exist it will echo it out
-function printQuote($quoArr){
+function printQuote($quoteArry){
 
-    $quote = getRandomQuuote($quoArr, "quote");
-    $source = getRandomQuuote($quoArr, "source");
-    $citation = getRandomQuuote($quoArr, "citation");
-    $year = getRandomQuuote($quoArr, "year");
+    $getRandArray = getRandomQuote($quoteArry);
 
+    $quote = $getRandArray['quote'];
+    $source = $getRandArray['source'];
+    $citation = $getRandArray['citation'];
+    $year = $getRandArray['year'];
+
+    
     if (isset($citation) && isset($year)){
         echo "<p class='quote'>" . $quote .  "</p>";
         echo "<p class='source'>" . $source . "<span class='citation'>" . $citation . "</span><span class='year'>" . $year . "</span></p>";
@@ -89,10 +87,14 @@ function printQuote($quoArr){
         echo "<p class='quote'>" . $quote .  "</p>";
         echo "<p class='source'>" . $source . "</p>";
     }
-
-    //This code refresh the page ater 5 seconds
-    header("Refresh:5");
     
+    //This code refresh the page ater 5 seconds
+    //header("Refresh:5");
+
+
 }
+
+
+
 
 ?>
